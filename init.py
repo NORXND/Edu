@@ -15,7 +15,11 @@ Discord - NORXND#6717
 
 Thank you for using Edu! ~Made with ❤ to teachers by NORXND!
 """
-from discord_platform.main import init
+from discord_platform.main import init as discord
+from server import init as server
 
-# Uruchamia bota discord'a!
-init()
+# Uruchamia bota discord'a.
+discord()
+
+# Uruchamia serwer Flask.
+server()
