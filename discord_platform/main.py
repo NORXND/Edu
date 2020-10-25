@@ -13,7 +13,7 @@ bot = Bot(command_prefix='edu:', intents=Intents().all())
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=Activity(type=ActivityType.playing, name=f"EDU - edu:pomoc"))
-    print('Zalogowano pomyślnie!')
+    print(' * Zalogowano pomyślnie!')
 
 
 """
