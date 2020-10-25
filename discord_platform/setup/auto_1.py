@@ -57,11 +57,11 @@ async def auto_setup_1(guild):
         pupil_role: 2,
         teacher_role: 3,
         admin_role: 4,
-        guild.me: 5
+        #guild.me: 5
     }
     await guild.edit_role_positions(positions=positions)
 
-    # Tworzy kategorię i kanał "Weryfikacja"
+    # Tworzy kategorię i kanał „Weryfikacja”
     veryfi_overwrite = {
         unveryfied_role: PermissionOverwrite(read_message_history=True, read_messages=True),
         teacher_role: PermissionOverwrite(view_channel=False),
