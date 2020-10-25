@@ -1,5 +1,6 @@
 from flask import Flask
 from threading import Thread
+from os import environ
 
 """
     Jest potrzebny np. do Teams
