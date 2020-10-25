@@ -15,7 +15,7 @@ def ping():
 
 def run_server():
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True, host='0.0.0.0', port=int(environ.get('PORT', 5000)))
 
 
 def init():
