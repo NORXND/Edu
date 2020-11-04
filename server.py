@@ -1,6 +1,7 @@
 from asyncio import get_event_loop, new_event_loop
 from os import environ
 from threading import Thread
+from os import environ
 
 from botbuilder.schema import Activity
 from flask import Flask, request, Response
