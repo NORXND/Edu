@@ -1,4 +1,5 @@
 from .events import on_message
+import teams_platform.commands.wiki as cmd_wiki
 from botbuilder.core import (
     BotFrameworkAdapter,
     BotFrameworkAdapterSettings,
@@ -17,3 +18,7 @@ async def event_handler(context):
         await on_message(context)
         if context.activity.text.startswith('edu:'):
             pass
+
+async def command_handler(context):
+    cmd = context.activity.text
+    pass
