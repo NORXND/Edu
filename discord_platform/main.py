@@ -46,7 +46,8 @@ def init():
     bot_thread.start()
 
 
-cogs = ['discord_platform.admin', 'discord_platform.events', 'discord_platform.setup.main', 'discord_platform.help']
+cogs = ['discord_platform.admin', 'discord_platform.events', 'discord_platform.setup.main', 'discord_platform.help',
+        'discord_platform.wiki']
 
 for extension in cogs:
     bot.load_extension(extension)

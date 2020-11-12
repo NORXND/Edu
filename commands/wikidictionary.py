@@ -46,6 +46,4 @@ def show(key):
             "URL": summary['content_urls']['desktop']['page']}
     return page
 
-print(show("być"))
-
 

@@ -1,7 +1,7 @@
-from discord.ext.commands import Cog, command
 from discord import Embed
+from discord.ext.commands import Cog, command
+from discord.ext.commands.errors import CommandInvokeError
 import commands.wikipedia as wikipedia
-import commands.wikidictionary as wikidictionary
 
 
 # Klasa Cog'u
@@ -22,11 +22,15 @@ class Wiki(Cog):
     async def wpw(self, ctx, key: str):
         page = wikipedia.show(key)
 
-        embed = Embed(title=page["Tytuł"], url=page['URL'], description="", color=0xff8000)
-        embed.set_thumbnail(url=page["Obrazek"])
-        embed.add_field(name="", value=page['Opis'], inline=False)
+        if page["Obrazek"] is None:
+            page["Obrazek"] = Embed.Empty
+
+        embed = Embed(title="Artykuł na Wikipedii", url=page['URL'], description="", color=0xff8000)
+        embed.set_image(url=page["Obrazek"])
+        embed.add_field(name=page["Tytuł"], value=page['Opis'], inline=False)
 
         await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Wiki(bot))

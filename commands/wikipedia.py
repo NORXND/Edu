@@ -45,7 +45,3 @@ def show(key):
             "Opis": extract['query']['pages'][f"{summary['pageid']}"]['extract'],
             "URL": summary['content_urls']['desktop']['page']}
     return page
-
-print(show("Stack Overflow"))
-
-
