@@ -1,10 +1,9 @@
 from asyncio import get_event_loop, new_event_loop
-from os import environ
 from threading import Thread
 from os import environ
 
 from botbuilder.schema import Activity
-from flask import Flask, request, Response
+from flask import Flask, request, Response, redirect
 
 from teams_platform.main import api_handler, ADAPTER
 
@@ -14,6 +13,11 @@ app = Flask(__name__)
 @app.route('/ping')
 def ping():
     return "pong"
+
+# Main page
+@app.route('/')
+def redirect():
+    return redirect("https://norxnd.cal24.pl/edu", code=302)
 
 # Podstawowy endpoint dla Teams
 @app.route('/teams/event', methods=['GET', 'POST'])
