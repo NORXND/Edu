@@ -1,6 +1,6 @@
 from discord import Embed
 from discord.ext.commands import Cog, command
-from discord.ext.commands.errors import CommandInvokeError
+
 import commands.wikipedia as wikipedia
 
 

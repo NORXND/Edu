@@ -1,6 +1,8 @@
 from os import getenv, environ
+
 import mysql.connector
 from boto.s3.connection import S3Connection
+
 # Jeśli program jest na Heroku, pobiera sekrety
 try:
     s3 = S3Connection(environ['S3_KEY'], environ['S3_SECRET'])
@@ -15,6 +17,8 @@ SECRET['DATABASE_LOGIN'] = getenv("DATABASE_LOGIN")
 SECRET['DATABASE_PASSWORD'] = getenv("DATABASE_PASSWORD")
 SECRET['DATABASE_NAME'] = getenv("DATABASE_NAME")
 SECRET['DISCORD_TOKEN'] = getenv("DISCORD_TOKEN")
+SECRET['TEAMS_APPID'] = getenv("TEAMS_APPID")
+SECRET['TEAMS_PASSWORD'] = getenv("TEAMS_PASSWORD")
 
 # Łączy się z bazą danych.
 DB = mysql.connector.connect(

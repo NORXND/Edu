@@ -1,24 +1,28 @@
-from .events import on_message
-import teams_platform.commands.wiki as cmd_wiki
 from botbuilder.core import (
     BotFrameworkAdapter,
     BotFrameworkAdapterSettings,
 )
 
+import teams_platform.commands.wiki as cmd_wiki
+from storage import SECRET
+
 # Potrzebna zmienna
-ADAPTER = BotFrameworkAdapter(BotFrameworkAdapterSettings("", ""))
+ADAPTER = BotFrameworkAdapter(BotFrameworkAdapterSettings(SECRET['TEAMS_APPID'], SECRET['TEAMS_PASSWORD']))
+
 
 # Funkcja początkowa.
 async def api_handler(context):
-    await event_handler(context)
+    if context.activity.type == "message":
+        await message_handler(context)
+
 
 # Rozprowadza event do odpowiedniej funkcji.
-async def event_handler(context):
-    if context.activity.type == "message":
-        await on_message(context)
-        if context.activity.text.startswith('edu:'):
-            pass
-
-async def command_handler(context):
-    cmd = context.activity.text
-    pass
+async def message_handler(context):
+    cmd = " ".join(list(context.activity.text.split(" "))[1])
+    ctx = context
+    arg = " ".join(list(context.activity.text.split(" "))[2:])
+    # Szuka komendy, niestety nie da się chyba inaczej tego zrobić...
+    if 'wpw' == cmd.lower():
+        cmd_wiki.wpw(ctx, arg)
+    elif 'wps' == cmd.lower():
+        cmd_wiki.wps(ctx, arg)
