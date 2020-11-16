@@ -23,6 +23,6 @@ async def message_handler(context):
     arg = " ".join(list(context.activity.text.split(" "))[2:])
     # Szuka komendy, niestety nie da się chyba inaczej tego zrobić...
     if 'wpw' == cmd.lower():
-        cmd_wiki.wpw(ctx, arg)
+        await cmd_wiki.wpw(ctx, arg)
     elif 'wps' == cmd.lower():
-        cmd_wiki.wps(ctx, arg)
+        await  cmd_wiki.wps(ctx, arg)

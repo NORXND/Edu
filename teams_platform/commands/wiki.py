@@ -5,7 +5,7 @@ from botframework.connector.models import CardImage, CardAction
 import commands.wikipedia as wikipedia
 
 
-def wps(ctx, key: str, limit=10):
+async def wps(ctx, key: str, limit=10):
     search = wikipedia.search(key, limit)
     # Nie ma innej metody :(
     card = {"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
@@ -42,7 +42,7 @@ def wps(ctx, key: str, limit=10):
     await ctx.send_activity(Activity(type='message', attachments=[reply_content]))
 
 
-def wpw(ctx, key: str):
+async def wpw(ctx, key: str):
     page = wikipedia.show(key)
 
     if page["Obrazek"] is None:
