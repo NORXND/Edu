@@ -25,4 +25,4 @@ async def message_handler(context):
     if 'wpw' == cmd.lower():
         await cmd_wiki.wpw(ctx, arg)
     elif 'wps' == cmd.lower():
-        await  cmd_wiki.wps(ctx, arg)
+        await cmd_wiki.wps(ctx, arg)

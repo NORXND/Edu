@@ -1,6 +1,6 @@
 from asyncio import get_event_loop, new_event_loop
-from threading import Thread
 from os import environ
+from threading import Thread
 
 from botbuilder.schema import Activity
 from flask import Flask, request, Response, redirect
@@ -16,7 +16,7 @@ def ping():
 
 # Main page
 @app.route('/')
-def redirect():
+def home():
     return redirect("https://norxnd.cal24.pl/edu", code=302)
 
 # Podstawowy endpoint dla Teams
@@ -44,7 +44,7 @@ def teams_event():
 
 def run_server():
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, host='0.0.0.0', port=int(environ.get('PORT', 5000)))
+    app.run(threaded=True, host='127.168.1.1', port=int(environ.get('PORT', 5000)))
 
 
 def init():
