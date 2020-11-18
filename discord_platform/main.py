@@ -1,8 +1,10 @@
-from discord.ext.commands import Bot
-from discord import Activity, ActivityType, Intents
-from sys import platform as current_os_platform
 from asyncio import get_event_loop, get_child_watcher
+from sys import platform as current_os_platform
 from threading import Thread
+
+from discord import Activity, ActivityType, Intents
+from discord.ext.commands import Bot
+
 from storage import SECRET
 
 # Tworzenie klasy bota.

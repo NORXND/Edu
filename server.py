@@ -9,12 +9,13 @@ from teams_platform.main import api_handler, ADAPTER
 
 app = Flask(__name__)
 
+
 # Ping
 @app.route('/ping')
 def ping():
     return "pong"
 
-# Main page
+# Strona główna.
 @app.route('/')
 def home():
     return redirect("https://norxnd.cal24.pl/edu", code=302)
@@ -37,13 +38,12 @@ def teams_event():
     activity = Activity().deserialize(body)
     auth_header = (request.headers["Authorization"] if "Authorization" in request.headers else "")
 
-    # Uruchamia pętle
+    # Uruchamia pętle.
     loop.run_until_complete(loop.create_task(ADAPTER.process_activity(activity, auth_header, api_handler)))
     return Response(status=201)
 
 
 def run_server():
-    # Threaded option to enable multiple instances for multiple user access support
     app.run(threaded=True, host='0.0.0.0', port=int(environ.get('PORT', 5000)))
 
 

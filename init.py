@@ -1,7 +1,7 @@
 """
 Edu - Zdalna edukacja dla każdego!
 ----------------------------------------------------------------
-Copyright (C) 2020, Chojrak Development. All rights reserved.
+Copyright © 2020, Chojrak Development. All rights reserved.
 ONLY POLISH VERSION AVAILABLE, SOME FUTURES MAY NOT BE SUPPORTED BY ENGLISH EVEN AFTER TRANSLATIONS !!!
 ----------------------------------------------------------------
 Obsługiwane platformy:
@@ -15,11 +15,13 @@ Discord - NORXND#6717
 
 Thank you for using Edu! ~Made with ❤ to teachers by NORXND!
 """
+
 from discord_platform.main import init as discord
 from server import init as server
 
-# Uruchamia bota discord'a.
+# Uruchamia bota Discord.
 discord()
 
 # Uruchamia serwer Flask.
 server()
+
