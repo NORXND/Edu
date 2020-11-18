@@ -5,6 +5,7 @@ from botbuilder.core import (
 
 import teams_platform.commands.wiki as cmd_wiki
 from storage import SECRET
+from teams_platform.commands.help import helpcmd
 
 # Potrzebna zmienna
 ADAPTER = BotFrameworkAdapter(BotFrameworkAdapterSettings(SECRET['TEAMS_APPID'], SECRET['TEAMS_PASSWORD']))
@@ -26,3 +27,5 @@ async def message_handler(context):
         await cmd_wiki.wpw(ctx, arg)
     elif 'wps' == cmd.lower():
         await cmd_wiki.wps(ctx, arg)
+    elif 'pomoc' == cmd.lower():
+        await helpcmd(ctx)
