@@ -6,7 +6,7 @@ import commands.wikipedia as wikipedia
 
 async def wps(ctx, key: str, limit=10):
     search = wikipedia.search(key, limit)
-    # Nie ma innej metody :(
+    # Nie ma innej metody:
     card = {"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
             "type": "AdaptiveCard",
             "version": "1.0",
@@ -32,12 +32,12 @@ async def wps(ctx, key: str, limit=10):
                         {
                             "type": "FactSet",
                             "facts": []}]}]}
-
+    # Tutaj dopisuje wyniki.
     for x in search:
         fact = {"title": x["Tytuł"], "value": x["Opis"]}
         card['body'][2]['items'][0]["facts"].append(fact)
 
-    print(card)
+    # I wysyła.
     reply_content = Attachment(content_type='application/vnd.microsoft.card.adaptive',
                                content=card)
     await ctx.send_activity(Activity(type='message', attachments=[reply_content]))

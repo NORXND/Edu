@@ -1,12 +1,12 @@
 import requests as http
 
-# Szuka artykułów na Wikipedii
+# Szuka artykułów na Wikipedii.
 def search(key, limit=10):
     key = key.replace(" ", "_")
     request = http.get(f"https://pl.wiktionary.org/w/rest.php/v1/search/page?q={key}&limit={limit}")
     results = []
 
-    # Przygotowuje wyniki
+    # Przygotowuje wyniki.
     for x in request.json()["pages"]:
         if x['thumbnail'] is not None:
             image = x['thumbnail']['url']
@@ -19,12 +19,13 @@ def search(key, limit=10):
         results.append(result)
     return results
 
-# Pokazuje artykuł
+
+# Pokazuje artykuł.
 def show(key):
     key = key.replace(" ", "_")
     summary = http.get(f"https://pl.wiktionary.org/api/rest_v1/page/summary/{key}")
 
-    # Sprawdza czy istnieje
+    # Sprawdza czy istnieje.
     if summary.status_code == 404:
         return None
 
@@ -45,5 +46,3 @@ def show(key):
             "Opis": extract['query']['pages'][f"{summary['pageid']}"]['extract'],
             "URL": summary['content_urls']['desktop']['page']}
     return page
-
-
