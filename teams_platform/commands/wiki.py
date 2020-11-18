@@ -1,4 +1,3 @@
-from botbuilder.core.card_factory import CardFactory
 from botbuilder.schema import ThumbnailCard, Activity, Attachment
 from botframework.connector.models import CardImage, CardAction
 
@@ -33,12 +32,14 @@ async def wps(ctx, key: str, limit=10):
                         {
                             "type": "FactSet",
                             "facts": []}]}]}
+
     for x in search:
         fact = {"title": x["Tytuł"], "value": x["Opis"]}
         card['body'][2]['items'][0]["facts"].append(fact)
 
-    reply_content = Attachment(content_type='application/vnd.microsoft.card.thumbnail',
-                               content=CardFactory.adaptive_card(card=card))
+    print(card)
+    reply_content = Attachment(content_type='application/vnd.microsoft.card.adaptive',
+                               content=card)
     await ctx.send_activity(Activity(type='message', attachments=[reply_content]))
 
 
