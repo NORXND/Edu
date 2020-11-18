@@ -44,7 +44,7 @@ def teams_event():
 
 def run_server():
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, host='127.168.1.1', port=int(environ.get('PORT', 5000)))
+    app.run(threaded=True, host='0.0.0.0', port=int(environ.get('PORT', 5000)))
 
 
 def init():
