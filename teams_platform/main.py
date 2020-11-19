@@ -14,13 +14,13 @@ ADAPTER = BotFrameworkAdapter(BotFrameworkAdapterSettings(SECRET['TEAMS_APPID'],
 
 # Funkcja początkowa.
 async def api_handler(context):
+    await context.send_activity(Activity(type=ActivityTypes.typing))
     if context.activity.type == "message":
         await message_handler(context)
 
 
 # Rozprowadza event do odpowiedniej funkcji.
 async def message_handler(context):
-    await context.send_activity(Activity(type=ActivityTypes.typing))
     cmd = "".join(list(context.activity.text.split(" "))[1])
     ctx = context
     arg = " ".join(list(context.activity.text.split(" "))[2:])
