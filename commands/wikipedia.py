@@ -23,7 +23,10 @@ def search(key, limit=10):
 # Pokazuje artykuł.
 def show(key):
     key = key.replace(" ", "_")
-    summary = http.get(f"https://pl.wikipedia.org/api/rest_v1/page/summary/{key}")
+    print(key)
+    url = f"https://pl.wikipedia.org/api/rest_v1/page/summary/{key}"
+    print(url)
+    summary = http.get(url)
 
     # Sprawdza, czy istnieje.
     if summary.status_code == 404:
