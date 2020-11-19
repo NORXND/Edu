@@ -34,6 +34,7 @@ def show(key):
 
     # Przygotowanie strony
     summary = summary.json()
+    print(summary)
 
     extract = http.get(f"https://pl.wikipedia.org/w/api.php?format=json&action=query&prop=extracts"
                        f"&exintro&explaintext&redirects=1&pageids={summary['pageid']}")
