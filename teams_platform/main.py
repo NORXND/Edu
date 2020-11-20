@@ -2,11 +2,12 @@ from botbuilder.core import (
     BotFrameworkAdapter,
     BotFrameworkAdapterSettings,
 )
-from botbuilder.schema import Activity, ActivityTypes
 
 import teams_platform.commands.wiki as cmd_wiki
 from storage import SECRET
 from teams_platform.commands.help import helpcmd
+
+# from botbuilder.schema import Activity, ActivityTypes
 
 # Potrzebna zmienna
 ADAPTER = BotFrameworkAdapter(BotFrameworkAdapterSettings(SECRET['TEAMS_APPID'], SECRET['TEAMS_PASSWORD']))
@@ -14,7 +15,7 @@ ADAPTER = BotFrameworkAdapter(BotFrameworkAdapterSettings(SECRET['TEAMS_APPID'],
 
 # Funkcja początkowa.
 async def api_handler(context):
-    await context.send_activity(Activity(type=ActivityTypes.typing))
+    # await context.send_activity(Activity(type=ActivityTypes.typing))
     if context.activity.type == "message":
         await message_handler(context)
 
