@@ -3,6 +3,7 @@ import requests as http
 # Szuka artykułów na Wikipedii.
 def search(key, limit=10):
     key = key.replace(" ", "_")
+    key = key.strip()
     request = http.get(f"https://pl.wikipedia.org/w/rest.php/v1/search/page?q={key}&limit={limit}")
     results = []
 
