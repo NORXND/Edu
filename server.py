@@ -37,6 +37,7 @@ def teams_event():
     # Tworzy model z „body” oraz pobiera „Auth Header”.
     activity = Activity().deserialize(body)
     auth_header = (request.headers["Authorization"] if "Authorization" in request.headers else "")
+    print(auth_header)
 
     # Uruchamia pętle.
     loop.run_until_complete(loop.create_task(ADAPTER.process_activity(activity, auth_header, api_handler)))
