@@ -24,9 +24,8 @@ def search(key, limit=10):
 # Pokazuje artykuł.
 def show(key):
     key = key.replace(" ", "_")
-    print(key)
+    key = key.strip()
     url = f"https://pl.wikipedia.org/api/rest_v1/page/summary/{key}"
-    print(url)
     summary = http.get(url)
 
     # Sprawdza, czy istnieje.
