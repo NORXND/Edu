@@ -1,3 +1,6 @@
+# Edu został anulowany
+Ten program był tworzony jako mniejszy projekt dla nauczycieli poprzedniej edukacji zdalnej. Jego głównymż zadaniem było ochrona serwerów Discord (bo te były najczęściej atakowane) przed "raidami" . Nauczyciele teraz kożystają z MS Teams który te funkcje już ma. Niestety bot na tą platformę nie powstał (Jeśli wgl był potrzebny) przez błąd API Teams'ów.
+
 # Edu - Zdalna edukacja dla każdego!
 
 Edu to czatbot stworzony dla nauczycieli na czas zdalnej edukacji. Dzięki niemu możesz np. ochronić swój serwer Discord lub dodać do swoich zajęć ciekawe elementy. Zarazem Edu jest przystosowany do nauczycieli, którzy nie potrafią obsługiwać internetu na tyle dobrze by kożystać z innych narzędzi. Dzięki czemu każdy może stworzyć swoją klasę profesjonalnie i bezpiecznie.
